@@ -23,6 +23,8 @@ jobs:
 
   deploy:
     needs: build
+    runs-on: ubuntu-latest
+
     # if: github.event_name == 'worckflow_dispatch'
     steps:
       - name: Render.com Deploy
