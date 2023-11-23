@@ -20,3 +20,13 @@ jobs:
         run: npm install
       - name: Run integration tests
         run: npm test
+
+  deploy:
+    needs: build
+    # if: github.event_name == 'worckflow_dispatch'
+    steps:
+      - name: Render.com Deploy
+        uses: ttskch/render-deploy@v1.0.0
+        with:
+          service-id: ${{ secrets.MY_RENDER_SERVICE_ID }}
+          api-key: ${{ secrets.MY_RENDER_API_KEY }}
