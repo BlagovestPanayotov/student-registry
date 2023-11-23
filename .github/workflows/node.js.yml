@@ -24,8 +24,8 @@ jobs:
   deploy:
     needs: build
     runs-on: ubuntu-latest
-
-    # if: github.event_name == 'worckflow_dispatch'
+    if: github.event_name == 'worckflow_dispatch'
+    
     steps:
       - name: Deploy to production
         uses: johnbeynon/render-deploy-action@v0.0.8
